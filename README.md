@@ -7,7 +7,6 @@ Look in the modules.dm1.pas and, if necessary, change the constants to match you
 
 It doesn't do much, just looks pretty.
 
-You need to have TChart installed (the free version is fine but it will probably work with the Pro version too).
 When it launches it will check the database is present and try to connect to it.
 When connected the screen will be blank. To fill it with the existing demo data hit either of the buttons labeled "1" in the screenshot below.
 To make it blank the screen and recreate the test data hit either of the buttons labeled "2".
