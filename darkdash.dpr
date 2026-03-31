@@ -12,7 +12,7 @@ uses
 begin
   GlobalUseSkia := True;
   Application.Initialize;
-  Application.CreateForm(TDataModule1, DataModule1);
   Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TDataModule1, DataModule1);
   Application.Run;
 end.

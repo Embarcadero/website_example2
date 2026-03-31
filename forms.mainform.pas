@@ -120,12 +120,15 @@ type
     ActionList1: TActionList;
     ZeroValuesAction: TAction;
     FillValuesAction: TAction;
+    Timer1: TTimer;
     procedure FormActivate(Sender: TObject);
     procedure ZeroValuesActionExecute(Sender: TObject);
     procedure FillValuesActionExecute(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
   private
     procedure UpdateStats;
     procedure ClearScreenValues;
+    procedure MyDoActivate;
   end;
 
 var
@@ -163,8 +166,26 @@ begin
   Chart6.Invalidate;
 end;
 
+procedure TForm1.MyDoActivate;
+begin
+  try
+    ClearScreenValues;
+    DataModule1.ActivateDatabase;
+  except
+    on E: Exception do
+      ShowMessage('Error during activate: "' + E.Message + '"');
+  end;
+end;
+
+procedure TForm1.Timer1Timer(Sender: TObject);
+begin
+  Timer1.Enabled := False;
+  FillValuesAction.Execute;
+end;
+
 procedure TForm1.FillValuesActionExecute(Sender: TObject);
 begin
+  MyDoActivate;
   UpdateStats;
 end;
 
@@ -173,8 +194,7 @@ begin
   if Tag = 0 then
   begin
     Tag := 1;
-    ClearScreenValues;
-    DataModule1.ActivateDatabase;
+    Timer1.Enabled := True;
   end;
 end;
 

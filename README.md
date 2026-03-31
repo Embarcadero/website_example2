@@ -23,7 +23,7 @@ That's all it does *right now* - none of the other buttons do anything.
 
 The demo uses no code for the UI and no additional 3rd party controls - it's all FireMonkey and built-in components. It was designed to fit 1920 x 1080 and 2k monitors by default. The full example will obviously do the whole thing and work completely!
 
-This is being developed into a full working demo for CodeRage in December along with several other new ones.
+We plan to turn this into a full working demo at some point along with several other new ones.
 
   Written by **Ian Barker**
             

@@ -41,9 +41,10 @@ const
   //                                                                              ///
   // Change these values to match your own details - see the notes later though!  ///
   //                                                                              ///
-  cDatabase  = '..\..\data\IB_WEBINAR.IB';                                       ///
+  //  cDatabase  = 'c:\databases\IB_WEBINAR.IB';                                  ///
+  cDatabase  = '..\..\data\IB_WEBINAR.IB';                                        ///
   cServer     = '127.0.0.1';                                                      ///
-  cPort       = '3050';                                                           ///
+  cPort       = '3055';                                                           ///
   cUser_Name = 'SYSDBA';                                                          ///
   cPassword  = 'masterkey';                                                       ///
   //                                                                              ///
@@ -123,7 +124,7 @@ end;
 
 procedure TDataModule1.DataModuleCreate(Sender: TObject);
 begin
-  FMS.Create;
+  FMS := TFormatSettings.Create;
 end;
 
 procedure TDataModule1.GetChartValues(const TheTable: string; const TheSeries: TChartSeries; const WithLabels: boolean);
