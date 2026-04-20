@@ -137,6 +137,7 @@ var
 implementation
 
 {$R *.fmx}
+{$R *.Macintosh.fmx MACOS}
 
 uses modules.dm1;
 

@@ -8,7 +8,8 @@ uses
   FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.IB,
   FireDAC.Phys.IBDef, FireDAC.FMXUI.Wait, Data.DB, FireDAC.Comp.Client,
   FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt,
-  FireDAC.Comp.DataSet, FMXTee.Engine, FMXTee.Chart, FireDAC.VCLUI.Wait, FireDAC.Phys.IBLiteDef;
+  FireDAC.Comp.DataSet, FMXTee.Engine, FMXTee.Chart,
+  FireDAC.Phys.IBLiteDef, FireDAC.Comp.UI;
 
 type
   TDataModule1 = class(TDataModule)
@@ -16,6 +17,7 @@ type
     FDQuery1: TFDQuery;
     FDTable1: TFDTable;
     FDDeleteContents: TFDQuery;
+    FDGUIxWaitCursor1: TFDGUIxWaitCursor;
     procedure DataModuleCreate(Sender: TObject);
   private
     FMS: TFormatSettings;
@@ -42,9 +44,15 @@ const
   // Change these values to match your own details - see the notes later though!  ///
   //                                                                              ///
   //  cDatabase  = 'c:\databases\IB_WEBINAR.IB';                                  ///
+{$IFDEF MACOS}
+  cDatabase  = 'IB_WEBINAR.IB';                                                   ///
+  cServer     = '';                                                               ///
+  cPort       = '3050';                                                           ///
+{$ELSE}
   cDatabase  = '..\..\data\IB_WEBINAR.IB';                                        ///
   cServer     = '127.0.0.1';                                                      ///
   cPort       = '3055';                                                           ///
+{$ENDIF}
   cUser_Name = 'SYSDBA';                                                          ///
   cPassword  = 'masterkey';                                                       ///
   //                                                                              ///
